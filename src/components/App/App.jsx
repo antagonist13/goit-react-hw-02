@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Description from '../Description/Description'
 import Options from '../Options/Options'
 import Feedback from '../Feedback/Feedback'
+import css from './App.module.css'
 
 export default function App() {
     const data = () => {
@@ -21,7 +22,8 @@ export default function App() {
     }
 
     const [reviews, setReviews] = useState(data)
-    const {good, neutral, bad} = reviews
+    const { good, neutral, bad } = reviews
+    
     const totalFeedback = good + neutral + bad;
     const positiveFeedback = Math.round((good / totalFeedback) * 100)
 
@@ -46,9 +48,9 @@ export default function App() {
             return newData
         })
     }
-    return <>
+    return <div className={css.header}>
         <Description />
         <Options handleClick={updateFeedback} reviews={reviews} total={totalFeedback} handleReset={handleReset} />
         {totalFeedback === 0 ? <p>No feedback yet</p> : <Feedback rating={reviews} total={totalFeedback} positive={positiveFeedback} />}
-        </>
+        </div>
 }
