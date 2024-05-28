@@ -1,0 +1,12 @@
+.image {
+  max-width: 100%;
+}
+.onlineStatus {
+  font-size: 14px;
+}
+.online {
+  color: green;
+}
+.offline {
+  color: red;
+}
